@@ -21,7 +21,7 @@ function APIKeyLimit(){
 function APIKeyEmail(){
 	CHKE=$(curl -skL "https://api.sendgrid.com/v3/user/email" -H "Authorization: Bearer ${1}")
 	if [[ $CHKE =~ 'email' ]]; then
-		AE=$(echo $CHKL | jq .email)
+		AE=$(echo $CHKE | jq .email)
 		echo "[##] ${1} [VALID]" | tee -a Results/apikey-email.txt
 		echo "[###] Email : ${AE}" | tee -a Results/apikey-email.txt
 		echo "" >> Results/apikey-email.txt
